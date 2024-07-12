@@ -1,0 +1,20 @@
+<div class="container flex flex-col mx-auto font-body">
+    <header ><h1>Started Learning Information Technology</h1></header>
+    <div>
+        <div>
+            <div class="chat-bubble my-2 " *ngFor="let item of news " >{{item.content}}
+                <span [ngSwitch]="item.important">
+                    <span  *ngSwitchCase=1>ສຳຄັນຫຼາຍ</span>
+                    <span *ngSwitchCase=2>ສຳຄັນ</span>
+                    <span *ngSwitchDefault=""></span>
+                </span>
+            </div>
+            <div *ngIf="news.length>0 else emptyNews">ມີຂ່າວແຈ້ງ ({{news.length}})</div>
+            <ng-template #emptyNews>ຂະນະນີ້ບໍ່ມີຂ່າວ</ng-template>
+        </div>
+        <div>
+            <img src="/favicon.ico" alt="" srcset="">
+        </div>
+    </div>
+    <footer><p>Information Technology Department</p></footer>
+</div>
