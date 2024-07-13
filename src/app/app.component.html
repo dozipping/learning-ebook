@@ -1,20 +1,20 @@
-<div class="container flex flex-col mx-auto font-body">
-    <header ><h1>Started Learning Information Technology</h1></header>
-    <div>
-        <div>
-            <div class="chat-bubble my-2 " *ngFor="let item of news " >{{item.content}}
+<div class="container grid justify-center grid-rows-subgrid auto-cols-max grid-flow-row-dense mx-auto font-body">
+    <header class="text-center text-4xl mb-6 mt-4 "><h1>Started Learning Information Technology</h1></header>
+    <div class="grid grid-cols-2">
+        <div >
+            <div class="chat-bubble my-2 m-3 p-3" *ngFor="let item of getActiveNews() " >{{item.content}}
                 <span [ngSwitch]="item.important">
                     <span  *ngSwitchCase=1>ສຳຄັນຫຼາຍ</span>
                     <span *ngSwitchCase=2>ສຳຄັນ</span>
                     <span *ngSwitchDefault=""></span>
                 </span>
             </div>
-            <div *ngIf="news.length>0 else emptyNews">ມີຂ່າວແຈ້ງ ({{news.length}})</div>
+            <div class="m-3 p-3 " *ngIf="news.length>0 else emptyNews">ມີຂ່າວແຈ້ງ ({{news.length}})</div>
             <ng-template #emptyNews>ຂະນະນີ້ບໍ່ມີຂ່າວ</ng-template>
         </div>
         <div>
-            <img src="/favicon.ico" alt="" srcset="">
+            <img class="w-full" src="/favicon.ico" alt="" srcset="">
         </div>
     </div>
-    <footer><p>Information Technology Department</p></footer>
+    <footer class="grid justify-center"><p>Information Technology Department</p></footer>
 </div>
