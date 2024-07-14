@@ -1,20 +1,38 @@
-<div class="container grid justify-center grid-rows-subgrid auto-cols-max grid-flow-row-dense mx-auto font-body">
-    <header class="text-center text-4xl mb-6 mt-4 "><h1>Started Learning Information Technology</h1></header>
-    <div class="grid grid-cols-2">
-        <div >
-            <div class="chat-bubble my-2 m-3 p-3" *ngFor="let item of getActiveNews() " >{{item.content}}
-                <span [ngSwitch]="item.important">
-                    <span  *ngSwitchCase=1>ສຳຄັນຫຼາຍ</span>
-                    <span *ngSwitchCase=2>ສຳຄັນ</span>
-                    <span *ngSwitchDefault=""></span>
-                </span>
-            </div>
-            <div class="m-3 p-3 " *ngIf="news.length>0 else emptyNews">ມີຂ່າວແຈ້ງ ({{news.length}})</div>
-            <ng-template #emptyNews>ຂະນະນີ້ບໍ່ມີຂ່າວ</ng-template>
-        </div>
-        <div>
-            <img class="w-full" src="/favicon.ico" alt="" srcset="">
-        </div>
+<div
+  class="container w-screen grid justify-center grid-rows-subgrid auto-cols-max grid-flow-row-dense mx-auto font-display"
+>
+  <header class="text-center text-4xl mb-6 mt-4">
+    <h1 class="text-white">Started Learning Information Technology</h1>
+  </header>
+  <div class="grid grid-cols-2">
+    <div>
+      <div
+        class="chat-bubble my-2 m-3 p-3"
+        *ngFor="let item of getActiveNews()"
+        [ngStyle]="getImporttStyle(item.important)"
+      >
+        {{ item.content }}
+        <!-- <span  *ngSwitchCase=1>ສຳຄັນຫຼາຍ</span> -->
+        <span
+          [ngSwitch]="item.important"
+          [style.color]="item.important == 1?'Red':''"
+          >
+          <span class="text-nowrap"  *ngSwitchCase=1>ສຳຄັນຫຼາຍ</span>
+          <span *ngSwitchCase=2>ສຳຄັນ</span>
+          <span *ngSwitchDefault=""></span>
+        </span>
+        
+      </div>
+      <div class="m-3 p-3" *ngIf="news.length > 0; else emptyNews">
+        ມີຂ່າວແຈ້ງ ({{ news.length }})
+      </div>
+      <ng-template #emptyNews>ຂະນະນີ້ບໍ່ມີຂ່າວ</ng-template>
     </div>
-    <footer class="grid justify-center"><p>Information Technology Department</p></footer>
+    <div class="flex justify-center bg-gray-800 rounded-3xl">
+      <img class="w-96 p-6" src="/assets/images/logo_mega.png" alt="" srcset="" />
+    </div>
+  </div>
+  <footer class="grid justify-center">
+    <p>Information Technology Department</p>
+  </footer>
 </div>

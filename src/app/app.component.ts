@@ -28,7 +28,7 @@ export class AppComponent {
       new News(
         'Angular Programming',
         'Angular Programming will start on 13 Jan.2024',
-        false,
+        true,
         2,
         '2024/4/30'
       )
@@ -37,7 +37,7 @@ export class AppComponent {
       new News(
         'Flutter Programming',
         'Flutter Programming will start on 13 Jan.2024',
-        false,
+        true,
         3,
         '2024/4/30'
       )
@@ -49,5 +49,13 @@ export class AppComponent {
         if(item.active) news_active.push(item);
       }
       return news_active;
+  };
+  importStyle = {};
+  getImporttStyle(important:number){
+    return this.importStyle = {
+      'font-size':important==1 ? '24px' : important==2?'18px':'12px',
+      'color':important==1?'#FFFFFF':'',
+      'background-color':important==1?'#39DB6A':''
+    };
   }
 }
