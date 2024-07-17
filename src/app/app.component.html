@@ -15,7 +15,7 @@
         <!-- <span  *ngSwitchCase=1>ສຳຄັນຫຼາຍ</span> -->
         <span
           [ngSwitch]="item.important"
-          [style.color]="item.important == 1?'Red':''"
+          [style.color]="item.important == 1?'purple':''"
           >
           <span class="text-nowrap"  *ngSwitchCase=1>ສຳຄັນຫຼາຍ</span>
           <span *ngSwitchCase=2>ສຳຄັນ</span>
@@ -23,7 +23,7 @@
         </span>
         
       </div>
-      <div class="m-3 p-3" *ngIf="news.length > 0; else emptyNews">
+      <div appTextRight *ngIf="news.length > 0; else emptyNews">
         ມີຂ່າວແຈ້ງ ({{ news.length }})
       </div>
       <ng-template #emptyNews>ຂະນະນີ້ບໍ່ມີຂ່າວ</ng-template>
@@ -32,7 +32,7 @@
       <img class="w-96 p-6" src="/assets/images/logo_mega.png" alt="" srcset="" />
     </div>
   </div>
-  <footer class="grid justify-center">
+  <footer class="grid justify-center my-4">
     <p>Information Technology Department</p>
   </footer>
 </div>

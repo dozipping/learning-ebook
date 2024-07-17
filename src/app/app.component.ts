@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { News } from './news';
+import { TextRightDirective } from './text-right.directive';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CommonModule],
+  imports: [RouterOutlet, CommonModule,TextRightDirective],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
