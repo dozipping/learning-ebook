@@ -5,14 +5,13 @@ import { Directive, ElementRef, HostListener } from '@angular/core';
   standalone: true
 })
 export class TextRightDirective {
-
-  constructor(el: ElementRef) {
-    el.nativeElement.style.textAlign='center';
+  constructor(private el: ElementRef) {
+    this.el.nativeElement.style.textAlign='right';
    }
    @HostListener('mouseenter')
    onMouseEnter(){this.moveLeft('left');}
    @HostListener('mouseleave')
-   onMouseLeave(){this.moveleft('right');}
+   onMouseLeave(){this.moveLeft('right');}
    private moveLeft(move:string){
     this.el.nativeElement.style.textAlign=move;
    }
